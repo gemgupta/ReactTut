@@ -1,19 +1,16 @@
+import ExpenseDate from "./ExpenseDate";
+import ExpenseDetails from "./ExpenseDetails";
 import "./ExpenseItem.css";
 function ExpenseItem(props) {
-    
   return (
-    <div>
-      <div className="expense-item">
-        <h3>{props.date}</h3>
-        <div className="expense-item__description">
-          <h3>Spent on purchasing {props.title} in {props.location}</h3>
-         
-          <div className="expense-item__price"> {props.amount}</div>
-        </div>
-      </div>
-    
-      </div>
-    
+    <div className="expense-item">
+      <ExpenseDate date={props.date} />
+      <ExpenseDetails
+        amount={props.amount}
+        location={props.location}
+        title={props.title}
+      />
+    </div>
   );
 }
 export default ExpenseItem;
