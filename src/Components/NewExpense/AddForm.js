@@ -1,25 +1,59 @@
 import React, { useState } from "react";
 import "./AddForm.css";
 const AddForm = () => {
-  const [enteredTitle, setEnteredTitle] = useState("");
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+    enteredLocation: "",
+  });
+  //   const [enteredTitle, setEnteredTitle] = useState("");
   const addFormHandler = (event) => {
-    setEnteredTitle(event.target.value);
-    console.log(enteredTitle);
+    // setEnteredTitle(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value
+    // });
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
+    });
   };
-  const [enteredAmount, setEnteredAmount] = useState("");
+  //   const [enteredAmount, setEnteredAmount] = useState("");
   const addFormHandler1 = (event) => {
-    setEnteredAmount(event.target.value);
-    console.log(enteredAmount);
+    // setEnteredAmount(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   enteredAmount: event.target.value,
+    // });
+    // console.log(enteredAmount);
+    setUserInput((prevState) => {
+        return { ...prevState, enteredAmount: event.target.value };
+      });
+    
   };
-  const [enteredDate, setenteredDate] = useState("");
+  //   const [enteredDate, setenteredDate] = useState("");
   const addFormHandler2 = (event) => {
-    setenteredDate(event.target.value);
-    console.log(enteredDate);
+    // setenteredDate(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   enteredDate: event.target.value,
+    // });
+    // console.log(enteredDate);
+    setUserInput((prevState) => {
+        return { ...prevState, enteredDate: event.target.value };
+      });
   };
-  const [enteredLocation, setenteredLocation] = useState("");
+  //   const [enteredLocation, setenteredLocation] = useState("");
   const addFormHandler3 = (event) => {
-    setenteredLocation(event.target.value);
-    console.log(enteredLocation);
+    // setenteredLocation(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   enteredLocation: event.target.value,
+    // });
+    // console.log(enteredLocation);
+    setUserInput((prevState) => {
+        return { ...prevState, enteredLocation: event.target.value };
+      });
   };
 
   return (
