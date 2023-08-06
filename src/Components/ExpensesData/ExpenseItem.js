@@ -5,6 +5,7 @@ import Card from "../UI/card";
 const ExpenseItem = (props) => {
   return (
     <Card className="expense-item">
+     
       <ExpenseDate date={props.date} />
       <ExpenseDetails
         amount={props.amount}

@@ -1,0 +1,10 @@
+#Year {
+  color: black;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+}
