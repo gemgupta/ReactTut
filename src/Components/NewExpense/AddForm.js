@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./AddForm.css";
-const AddForm = () => {
+const AddForm = (props) => {
   //   const [userInput, setUserInput] = useState({
   //     enteredTitle: "",
   //     enteredAmount: "",
@@ -62,7 +62,12 @@ const AddForm = () => {
       date: new Date(enteredDate),
       location: enteredLocation,
     };
-    console.log(expenseData);
+    
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setenteredDate("");
+    setenteredLocation("");
+props.onSaveData(expenseData)
   };
 
   return (
@@ -70,7 +75,7 @@ const AddForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={addFormHandler} />
+          <input type="text" value={enteredTitle} onChange={addFormHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -78,6 +83,7 @@ const AddForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={enteredAmount}
             onChange={addFormHandler1}
           />
         </div>
@@ -87,12 +93,17 @@ const AddForm = () => {
             type="date"
             min="2020-01-01"
             max="2023-12-31"
+            value={enteredDate}
             onChange={addFormHandler2}
           />
         </div>
         <div className="new-expense__control">
           <label>Location</label>
-          <input type="text" onChange={addFormHandler3} />
+          <input
+            type="text"
+            value={enteredLocation}
+            onChange={addFormHandler3}
+          />
         </div>
       </div>
       <div className="new-expense__actions">

@@ -2,6 +2,7 @@ import ExpenseItem from "./Components/ExpensesData/ExpenseItem";
 import "./Components/ExpensesData/Expense.css";
 import Card from "./Components/UI/card";
 import NewExpense from "./Components/NewExpense/NewExpense";
+import { useState } from "react";
 
 const App = () => {
   const expenses = [
@@ -34,12 +35,19 @@ const App = () => {
       location: "Bangkok",
     },
   ];
+  const [expenses1, setExpense]= useState(expenses)
 
+const getDataHandler=(newExpenseData)=>{
+console.log(newExpenseData)
+setExpense((prevExpense)=>{
+  return [newExpenseData, ...prevExpense]
+})
+}
   return (
     <div>
-      <NewExpense />
+      <NewExpense onGetData={getDataHandler}/>
       <Card className="expenses">
-        {expenses.map((item) => (
+        {expenses1.map((item) => (
           <ExpenseItem
             title={item.title}
             amount={item.amount}
