@@ -19,7 +19,8 @@
     color: white;
     border-radius: 12px;
     border-color: white;
-    margin-right: 19rem;
+    margin-right: 6rem;
+    margin: 10px;
   }
   
   .new-expense button:hover,
