@@ -50,7 +50,9 @@ const App = () => {
       <Card className="expenses">
         <ExpenseFilter/>
         {expenses1.map((item) => (
+          
           <ExpenseItem
+          key={item.id}
             title={item.title}
             amount={item.amount}
             date={item.date}
