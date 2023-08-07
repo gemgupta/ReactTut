@@ -6,3 +6,12 @@
     max-width: 95%;
    color: aliceblue;
   }
+  p {
+    display: block;
+    width: 100%;
+    margin : auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    
+  }

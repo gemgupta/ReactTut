@@ -35,7 +35,6 @@ let expenses = [
   },
 ];
 const App = () => {
-  
   const [expenses1, setExpense] = useState(expenses);
 
   const getDataHandler = (newExpenseData) => {
@@ -44,32 +43,43 @@ const App = () => {
     });
   };
 
-  
-    const [filteredYear, setFilteredYear] = useState('2021');
-  
-    const filterChangeHandler = (selectedYear) => {
-      setFilteredYear(selectedYear);
-    };
-  
-    const filteredExpenses = expenses1.filter(expense => {
-      return expense.date.getFullYear().toString() === filteredYear;
-    });
-  
-  return (
-    <div>
-      <NewExpense onGetData={getDataHandler} />
-      <Card className="expenses">
-        <ExpenseFilter selected={filteredYear}
-          onChangeFilter={filterChangeHandler}/>
-        {filteredExpenses.map((item) => ( 
+  const [filteredYear, setFilteredYear] = useState("2022");
+
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  };
+
+  const filteredExpenses = expenses1.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
+  let expensemsg = <p>No Expense found</p>;
+  if (filteredExpenses.length > 0) {
+    expensemsg = (
+      <div>
+        {filteredExpenses.map((item) => (
           <ExpenseItem
-          key={item.id}
+            key={item.id}
             title={item.title}
             amount={item.amount}
             date={item.date}
             location={item.location}
           />
         ))}
+        <p> {filteredExpenses.length} Expense found add more</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <NewExpense onGetData={getDataHandler} />
+      <Card className="expenses">
+        <ExpenseFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
+        {expensemsg}
       </Card>
     </div>
   );
